@@ -1,36 +1,81 @@
-<div class="jumbotron">
-  <h2><%= gettext "Welcome to %{name}", name: "Phoenix!" %></h2>
-  <p class="lead">A productive web framework that<br />does not compromise speed and maintainability.</p>
-</div>
+<h3>Simple Blog Post API Reference</h3>
 
-<div class="row marketing">
-  <div class="col-lg-6">
-    <h4>Resources</h4>
-    <ul>
-      <li>
-        <a href="http://phoenixframework.org/docs/overview">Guides</a>
-      </li>
-      <li>
-        <a href="http://hexdocs.pm/phoenix">Docs</a>
-      </li>
-      <li>
-        <a href="https://github.com/phoenixframework/phoenix">Source</a>
-      </li>
-    </ul>
-  </div>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Endpoint</th>
+      <th>Method</th>
+      <th>Example</th>
+      <th>Sample Response</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
 
-  <div class="col-lg-6">
-    <h4>Help</h4>
-    <ul>
-      <li>
-        <a href="http://groups.google.com/group/phoenix-talk">Mailing list</a>
-      </li>
-      <li>
-        <a href="http://webchat.freenode.net/?channels=elixir-lang">#elixir-lang on freenode IRC</a>
-      </li>
-      <li>
-        <a href="https://twitter.com/elixirphoenix">@elixirphoenix</a>
-      </li>
-    </ul>
-  </div>
-</div>
+    <tr>
+      <td><i>/api/posts</i></td>
+      <td>GET</td>
+      <td>http://website.com/api/posts</td>
+      <td>
+<pre>
+{
+  data: [
+    {id: 1, title: "First", categories: "Post"},
+    {id: 2, title: "Second", categories: "Lorem cat"},
+  ]
+}
+</pre>
+      </td>
+      <td>
+        Fetches recent posts in the database.
+        Return only the title, id, and categories.
+      </td>
+    </tr>
+
+    <tr>
+      <td><i>/api/posts</i></td>
+      <td>POST</td>
+      <td>http://website.com/api/posts</td>
+      <td>
+<pre>
+{
+  post: {
+    title: 'New post',
+    content: 'Lorem content',
+    categories: 'lorem, lorem2'
+  }
+}
+</pre>
+      </td>
+      <td>Creates a new blog post entry.</td>
+    </tr>
+
+    <tr>
+      <td><i>/api/posts/:id</i></td>
+      <td>GET</td>
+      <td>http://website.com/api/posts/1</td>
+      <td>
+<pre>
+{
+  data: {
+    id: 1,
+    title: "First Post",
+    content: "Lorem content",
+    categories: "First, lorem"
+  }
+}
+</pre>
+      </td>
+      <td>Fetches a single blog post with the given ID.  Includes the blog's content.</td>
+    </tr>
+
+    <tr>
+      <td><i>/api/posts/:id</i></td>
+      <td>DELETE</td>
+      <td>http://website.com/api/posts/5</td>
+      <td>
+      </td>
+      <td>Deletes a single blog post with the given ID.</td>
+    </tr>
+  </tbody>
+</table>
