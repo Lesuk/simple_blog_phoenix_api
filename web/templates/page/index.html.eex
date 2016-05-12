@@ -19,7 +19,7 @@
       <td>
 <pre>
 {
-  data: [
+  posts: [
     {id: 1, title: "First", categories: "Post"},
     {id: 2, title: "Second", categories: "Lorem cat"},
   ]
@@ -57,7 +57,7 @@
       <td>
 <pre>
 {
-  data: {
+  post: {
     id: 1,
     title: "First Post",
     content: "Lorem content",

@@ -2,11 +2,11 @@ defmodule SimpleBlog.PostView do
   use SimpleBlog.Web, :view
 
   def render("index.json", %{posts: posts}) do
-    %{data: render_many(posts, SimpleBlog.PostView, "slim_post.json")}
+    %{posts: render_many(posts, SimpleBlog.PostView, "slim_post.json")}
   end
 
   def render("show.json", %{post: post}) do
-    %{data: render_one(post, SimpleBlog.PostView, "post.json")}
+    %{post: render_one(post, SimpleBlog.PostView, "post.json")}
   end
 
   def render("post.json", %{post: post}) do
