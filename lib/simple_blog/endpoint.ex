@@ -35,5 +35,6 @@ defmodule SimpleBlog.Endpoint do
     key: "_simple_blog_key",
     signing_salt: "GBZX5Y8R"
 
+  plug Corsica, [origins: ["http://localhost:8080"], allow_headers: ["accept", "content-type"]]
   plug SimpleBlog.Router
 end
